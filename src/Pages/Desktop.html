@@ -79,8 +79,13 @@
                         class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
                         Show View Options</p>
                 </div>
-                <div class="camera-window absolute z-10 bg-black w-150 h-100 rounded-2xl flex flex-col justify-between overflow-hidden">
-                    <div class="video w-full h-screen">
+                <div class="camera-window absolute z-10 bg-black w-150 h-100 rounded-xl flex flex-col justify-between overflow-hidden">
+                    <div class="button w-full bg-zinc-700 h-5 flex gap-x-1 p-2 cursor-pointer">
+                        <button class="close bg-[#F4504B] h-2 w-2 rounded-full cursor-pointer"></button>
+                        <button class="fullscreen bg-[#EDB41F] h-2 w-2 rounded-full"></button>
+                        <button class="close bg-[#23C33A] h-2 w-2 rounded-full"></button>
+                    </div>
+                    <div class="video w-full h-[80%] overflow-hidden">
                         <video src=""></video>
                     </div>
                     <div class="bottom p-3 backdrop:opacity-70 flex items-center justify-center">
@@ -107,8 +112,6 @@
                     <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 5.png" alt="">
                     <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
-                        id="camera" src="../taskbarIcons/camera.png" alt="">
-                    <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 4.png" alt="">
                     <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 3.png" alt="">
@@ -129,6 +132,17 @@
     const rightClickMenu = document.querySelector(".rightClickMenu");
     const cameraWindow = document.querySelector(".camera-window");
     const cameraVideo = cameraWindow.querySelector("video")
+    const close = cameraWindow.querySelector(".close")
+
+    close.addEventListener("click", () => {
+        cameraWindow.style.display = "none";
+        cameraWindow.style.animation = "fadeOut 0.2s ease-in-out";
+    })
+
+    close.addEventListener("click", () => {
+        cameraWindow.style.display = "none";
+        cameraWindow.style.animation = "fadeOut 0.2s ease-in-out";
+    })
 
     document.addEventListener("contextmenu", (e) => {
         e.preventDefault();
@@ -144,6 +158,7 @@
     })
 
     camera.addEventListener("dblclick", () => {
+        cameraWindow.style.display = "block";
         openCamera();
     })
 
