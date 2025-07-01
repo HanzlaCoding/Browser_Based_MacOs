@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Based MacOS by Hanzala</title>
+    <link rel="shortcut icon" href="https://pngimg.com/d/apple_logo_PNG19688.png" type="image/x-icon">
+    <link rel="stylesheet" href="../output.css">
+</head>
+
+<body class="overflow-hidden font-[Sf_Pro_Display]">
+    <div class="lockscreen w-full h-screen relative">
+        <div class="wallpaper w-full h-full">
+            <img class="w-full h-full object-cover"
+                src="../Images/macos-monterey-wwdc-21-stock-dark-mode-5k-3840x2160-5585.jpg" alt="">
+        </div>
+        <div class="overlay w-full h-full absolute top-0 left-0 text-zinc-300">
+            <div class="wifi-battery w-full py-2 px-3 flex items-center gap-x-2 justify-end">
+                <p class="text-xs">Pakistan</p>
+                <img class="h-2" src="../Images/keyboard.png" alt="">
+                <img class="h-2" src="../Images/wifi.png" alt="">
+            </div>
+            <div class="part2 w-full h-full flex flex-col items-center justify-between py-18">
+                <div class="clock-date text-center">
+                    <div class="dateCont text-center">
+
+                    </div>
+                    <div class="time flex">
+                        <h1 class="hours text-8xl font-semibold">00</h1>
+                        <h1 class="text-8xl font-semibold">:</h1>
+                        <h1 class="minutes text-8xl font-semibold">00</h1>
+                        <h1 class="text-8xl font-semibold">:</h1>
+                        <h1 class="minutes text-8xl font-semibold">00</h1>
+                    </div>
+                </div>
+                <div class="account flex flex-col items-center gap-y-2">
+                    <div class="profile-img rounded-full overflow-hidden h-8 w-8">
+                        <img src="https://i.pinimg.com/736x/0b/97/6f/0b976f0a7aa1aa43870e1812eee5a55d.jpg" alt="">
+                    </div>
+                    <h1 class="text-sm font-semibold">Hanzala Shahid</h1>
+                    <button
+                        class="text-xs border-zinc-400 border-1 px-4 py-1 rounded-md bg-transparent backdrop-blur-3xl transition ease-in-out duration-300 cursor-pointer hover:bg-zinc-400 hover:text-black">Sign
+                        In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const btn = document.querySelector("button");
+    const time = document.querySelector(".time");
+    const dateCont = document.querySelector(".dateCont");
+
+    btn.addEventListener("click", () => {
+        location.href = "Desktop.html"
+    })
+
+    const daysOfWeek = [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday'
+    ];
+
+    var monthsOfYear = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    setInterval(() => {
+        getUpdatesDate()
+    }, 1000);
+
+    function getUpdatesDate() {
+        const date = new Date();
+        const currDate = date.getDate()
+        const currDay = daysOfWeek[date.getDay()]
+        const currMonth = monthsOfYear[date.getMonth()]
+        const currHrs = date.getHours()
+        const currMint = date.getMinutes()
+        const currSecs = date.getSeconds()
+
+        time.innerHTML = `<h1 class="text-8xl font-semibold">
+        ${currHrs < 10 ? `0${currHrs}` : `${currHrs}`}:${currMint < 10 ? `0${currMint}` : `${currMint}`}:${currSecs < 10 ? `0${currSecs}` : `${currSecs}`}
+            </h1>`;
+
+        dateCont.innerHTML = `<h4 class="text-2xl leading-4">
+        ${currDay + " "}${currMonth + " "}${currDate}</h4>`;
+    }
+</script>
+
+</html>

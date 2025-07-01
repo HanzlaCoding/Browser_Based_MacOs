@@ -6,40 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browser Based MacOS by Hanzala</title>
     <link rel="shortcut icon" href="https://pngimg.com/d/apple_logo_PNG19688.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../output.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 </head>
 
 <body class="overflow-hidden font-[Sf_Pro_Display]">
     <div class="lockscreen w-full h-screen relative">
-        <div class="wallpaper w-full h-full">
+        <div class="wallpaper w-full h-full z-0">
             <img class="w-full h-full object-cover"
                 src="../Images/macos-monterey-wwdc-21-stock-dark-mode-5k-3840x2160-5585.jpg" alt="">
         </div>
-        <div class="overlay w-full h-full absolute top-0 left-0 text-white flex flex-col justify-between">
-            <div class="top-meneu backdrop-blur-3xl w-full px-3 py-1 flex items-center justify-between">
-                <div class="menues flex items-center text-xs gap-x-3 tracking-wider">
-                    <img class="h-3" src="../Images/icons8-mac-90.png" alt="">
-                    <h6 class="font-bold">Finder</h6>
-                    <h6 class="cursor-pointer h-full w-full hover:bg-blue-500">File</h6>
-                    <h6 class="cursor-pointer h-full w-full hover:bg-blue-500">Edit</h6>
-                    <h6 class="cursor-pointer h-full w-full hover:bg-blue-500">View</h6>
-                    <h6 class="cursor-pointer h-full w-full hover:bg-blue-500">Go</h6>
-                    <h6 class="cursor-pointer h-full w-full hover:bg-blue-500">Window</h6>
-                    <h6 class="cursor-pointer h-full w-full hover:bg-blue-500">Help</h6>
+
+        <div class="overlay w-full h-full absolute top-0 left-0 text-white flex flex-col items-center">
+
+            <div class="top-menu backdrop-blur-3xl w-full px-3 py-1 flex items-center justify-between">
+                <div class="menu text-xs tracking-wider flex items-center">
+                    <div class="mac-logo">
+                        <img class="h-3" src="../Images/icons8-mac-90.png" alt="">
+                    </div>
+                    <button class="font-bold px-3">Finder</button>
+                    <button
+                        class="cursor-pointer h-fit px-3 transition ease-in-out duration-300 hover:bg-blue-500">File</button>
+                    <button
+                        class="cursor-pointer h-fit px-3 transition ease-in-out duration-300 hover:bg-blue-500">Edit</button>
+                    <button
+                        class="cursor-pointer h-fit px-3 transition ease-in-out duration-300 hover:bg-blue-500">View</button>
+                    <button
+                        class="cursor-pointer h-fit px-3 transition ease-in-out duration-300 hover:bg-blue-500">Go</button>
+                    <button
+                        class="cursor-pointer h-fit px-3 transition ease-in-out duration-300 hover:bg-blue-500">Window</button>
+                    <button
+                        class="cursor-pointer h-fit px-3 transition ease-in-out duration-300 hover:bg-blue-500">Help</button>
                 </div>
-                <div class="icons flex items-center gap-x-4">
+                <div class="icons flex items-center gap-x-3">
                     <p class="text-xs">PK</p>
-                    <img class="h-3" src="../Images/icons8-wi-fi-100.png" alt="">
+                    <img class="h-2" src="../Images/wifi.png" alt="">
                     <img class="h-3" src="../Images/icons8-search-90.png" alt="">
                     <h6 class="text-xs">Tue 1 June</h6>
-                    <h6 class="text-xs">14:37 PM</h6>
+                    <div class="time">
+                        <h6 class="text-xs">14:37 PM</h6>
+                    </div>
                 </div>
             </div>
+
+            <div style="height: 100vh; width: 100%; padding: 20px 20px;" class="mainDesktop">
+                <div class="folder w-fit h-fit px-2 py-1 rounded cursor-pointer">
+                    <img class="h-13" src="../Images/Folder.png" alt="">
+                    <p class="text-xs">New Folder</p>
+                </div>
+                <div
+                    class="rightClickMenu absolute bg-[#ECECEC] w-55 h-fit text-sm text-black p-1 rounded flex flex-col gap-y-1 z-50">
+                    <p
+                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        New Folder</p>
+                    <hr class="opacity-30">
+                    <p
+                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        Get Info</p>
+                    <p
+                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        Change Wallpaper...</p>
+                    <hr class="opacity-30">
+                    <p
+                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        Use Stacks</p>
+                    <p
+                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        Group Stack By</p>
+                    <p
+                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        Show View Options</p>
+                </div>
+                <div class="camera-window absolute z-10 bg-black w-150 h-100 rounded-2xl flex flex-col justify-between overflow-hidden">
+                    <div class="video w-full h-screen">
+                        <video src=""></video>
+                    </div>
+                    <div class="bottom p-3 backdrop:opacity-70 flex items-center justify-center">
+                        <div
+                        class="capture bg-zinc-100 z-30 w-10 h-10 rounded-full cursor-pointer transition ease-in-out duration-300 hover:bg-zinc-400">
+                    </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="taskbar-container w-full h-fit py-5 flex justify-center">
                 <div
                     class="taskbar w-fit h-fit flex justify-between gap-x-1 p-2 rounded-xl backdrop-blur-[100px] bg-zinc-400">
-                    <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
+                    <img class="h-11 transition ease-in-out duration-100 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 10.png" alt="">
                     <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 9.png" alt="">
@@ -52,6 +107,8 @@
                     <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 5.png" alt="">
                     <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
+                        id="camera" src="../taskbarIcons/camera.png" alt="">
+                    <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 4.png" alt="">
                     <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 3.png" alt="">
@@ -59,8 +116,104 @@
                         src="../taskbarIcons/Group 11.png" alt="">
                 </div>
             </div>
+
         </div>
     </div>
+
+
 </body>
+
+<script>
+    const time = document.querySelector(".time");
+    const camera = document.querySelector("#camera");
+    const rightClickMenu = document.querySelector(".rightClickMenu");
+    const cameraWindow = document.querySelector(".camera-window");
+    const cameraVideo = cameraWindow.querySelector("video")
+
+    document.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        rightClickMenu.style.left = `${e.clientX}px`;
+        rightClickMenu.style.top = `${e.clientY}px`;
+        rightClickMenu.style.display = "block";
+        rightClickMenu.style.animation = "fadeIn 0.2s ease-in-out";
+    })
+
+    document.addEventListener("click", (e) => {
+        rightClickMenu.style.display = "none";
+        rightClickMenu.style.animation = "fadeOut 0.2s ease-in-out";
+    })
+
+    camera.addEventListener("dblclick", () => {
+        openCamera();
+    })
+
+    function getUpdatedTime() {
+        const date = new Date();
+        const currHrs = date.getHours()
+        const currMint = date.getMinutes()
+
+        time.innerHTML = `<h6 class="text-xs">${currHrs}:${currMint} ${currHrs < 12 ? "AM" : "PM"}</h6>`;
+    }
+
+    async function openCamera() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        cameraVideo.style.zIndex = "0";
+        
+        if (!cameraVideo) {
+            console.error('Video element not found');
+            return;
+        }
+        cameraVideo.srcObject = stream;
+        await cameraVideo.play();
+        console.log('Camera opened successfully');
+        
+    } catch (err) {
+        // Handle specific error types
+        if (err.name === 'NotAllowedError') {
+            console.error('Camera access denied by user');
+        } else if (err.name === 'NotFoundError') {
+            console.error('No camera found on device');
+        } else if (err.name === 'NotReadableError') {
+            console.error('Camera is already in use');
+        } else {
+            console.error('Error accessing camera:', err.message);
+        }
+    }
+}
+
+// Alternative version with more detailed constraints
+async function openCameraAdvanced() {
+    try {
+        const constraints = {
+            video: {
+                width: { ideal: 1280 },
+                height: { ideal: 720 },
+                facingMode: 'user' // or 'environment' for back camera
+            }
+        };
+        
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        const cameraVideo = document.getElementById('cameraVideo');
+        
+        if (!cameraVideo) {
+            console.error('Video element not found');
+            return;
+        }
+        
+        cameraVideo.srcObject = stream;
+        await cameraVideo.play();
+        
+        console.log('Camera opened with advanced settings');
+        
+    } catch (err) {
+        console.error('Camera error:', err.name, err.message);
+    }
+}
+
+    setInterval(() => {
+        getUpdatedTime();
+    }, 3600);
+</script>
 
 </html>
