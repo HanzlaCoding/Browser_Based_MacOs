@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../output.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 </head>
 
@@ -57,31 +58,35 @@
                     <p class="text-xs">New Folder</p>
                 </div>
                 <div
-                    class="rightClickMenu absolute bg-[#ECECEC] w-55 h-fit text-sm text-black p-1 rounded flex flex-col gap-y-1 z-50">
-                    <p
-                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
-                        New Folder</p>
+                    class="rightClickMenu absolute bg-[#ECECEC] w-55 h-fit text-sm text-black p-1 rounded flex flex-col gap-y-1 items-center z-50">
+                    <button
+                        class="px-3 w-full cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        New Folder</button>
                     <hr class="opacity-30">
-                    <p
-                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
-                        Get Info</p>
-                    <p
-                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
-                        Change Wallpaper...</p>
+                    <button
+                        class="px-3 w-full cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        Get Info</button>
+                    <button
+                        class="px-3 w-full cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        Change Wallpaper...</button>
                     <hr class="opacity-30">
-                    <p
-                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
-                        Use Stacks</p>
-                    <p
-                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
-                        Group Stack By</p>
-                    <p
-                        class="px-3 cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
-                        Show View Options</p>
+                    <button
+                        class="px-3 w-full cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        Use Stacks</button>
+                    <button
+                        class="px-3 w-full cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        Group Stack By</button>
+                    <button
+                        class="px-3 w-full cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        Show View Options</button>
+                    <button id="lockTheScreen"
+                        class="px-3 w-full cursor-pointer transition ease-in-out duration-100 hover:bg-blue-500 hover:text-white">
+                        Lock the Screen</button>
                 </div>
-                <div class="camera-window absolute z-10 bg-black w-150 h-100 rounded-xl flex flex-col justify-between overflow-hidden">
+                <div
+                    class="camera-window absolute z-10 bg-black w-150 h-100 rounded-xl flex flex-col justify-between overflow-hidden">
                     <div class="button w-full bg-zinc-700 h-5 flex gap-x-1 p-2 cursor-pointer">
-                        <button class="close bg-[#F4504B] h-2 w-2 rounded-full cursor-pointer"></button>
+                        <button id="close" class="bg-[#F4504B] h-2 w-2 rounded-full cursor-pointer"></button>
                         <button class="fullscreen bg-[#EDB41F] h-2 w-2 rounded-full"></button>
                         <button class="close bg-[#23C33A] h-2 w-2 rounded-full"></button>
                     </div>
@@ -90,8 +95,230 @@
                     </div>
                     <div class="bottom p-3 backdrop:opacity-70 flex items-center justify-center">
                         <div
-                        class="capture bg-zinc-100 z-30 w-10 h-10 rounded-full cursor-pointer transition ease-in-out duration-300 hover:bg-zinc-400">
+                            class="capture bg-zinc-100 z-30 w-10 h-10 rounded-full cursor-pointer transition ease-in-out duration-300 hover:bg-zinc-400">
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <div id="safari" class="safari flex flex-col items-center justify-between overflow-hidden relative w-150 h-600">
+                <div class="dragable w-full bg-zinc-700 h-5 flex gap-x-1 p-2 cursor-pointer">
+                    <button class="close bg-[#F4504B] h-2 w-2 rounded-full cursor-pointer"></button>
+                    <button class="fullscreen bg-[#EDB41F] h-2 w-2 rounded-full"></button>
+                    <button class="close bg-[#23C33A] h-2 w-2 rounded-full"></button>
+                </div>
+                <iframe class="w-full h-full" src="https://www.google.com/webhp?igu=1"></iframe>
+            </div>
+
+            <div style="display: none;" class="finder-window">
+                <!-- Window Header (Traffic Lights) -->
+                <div class="window-header">
+                    <div class="traffic-light traffic-light-red red"></div>
+                    <div class="traffic-light yellow"></div>
+                    <div class="traffic-light green"></div>
+                    <div class="flex-grow text-center text-xs font-medium text-gray-600">Documents</div>
+                </div>
+        
+                <!-- Toolbar -->
+                <div class="toolbar">
+                    <div class="flex items-center gap-1">
+                        <div class="toolbar-icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="toolbar-icon">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="toolbar-icon">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <div class="toolbar-icon">
+                        <i class="fas fa-folder-plus"></i>
+                    </div>
+                    <div class="toolbar-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="toolbar-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <div class="flex-grow"></div> <!-- Spacer -->
+                    <div class="toolbar-icon active">
+                        <i class="fas fa-th-large"></i> <!-- Grid view -->
+                    </div>
+                    <div class="toolbar-icon">
+                        <i class="fas fa-list"></i> <!-- List view -->
+                    </div>
+                    <div class="toolbar-icon">
+                        <i class="fas fa-columns"></i> <!-- Columns view -->
+                    </div>
+                    <div class="toolbar-icon">
+                        <i class="fas fa-image"></i> <!-- Gallery view -->
+                    </div>
+                    <div class="toolbar-search">
+                        <input type="text" placeholder="Search">
+                    </div>
+                </div>
+        
+                <!-- Main Content Area -->
+                <div class="main-content">
+                    <!-- Sidebar -->
+                    <div class="sidebar">
+                        <div class="sidebar-section-title">Favorites</div>
+                        <div class="sidebar-item active">
+                            <span class="sidebar-icon blue"><i class="fas fa-star"></i></span>
+                            <span>Recents</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon blue"><i class="fas fa-desktop"></i></span>
+                            <span>Desktop</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon blue"><i class="fas fa-download"></i></span>
+                            <span>Downloads</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon blue"><i class="fas fa-file-alt"></i></span>
+                            <span>Documents</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon blue"><i class="fas fa-image"></i></span>
+                            <span>Pictures</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon blue"><i class="fas fa-music"></i></span>
+                            <span>Music</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon blue"><i class="fas fa-film"></i></span>
+                            <span>Movies</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon blue"><i class="fas fa-trash"></i></span>
+                            <span>Trash</span>
+                        </div>
+        
+                        <div class="sidebar-section-title">iCloud</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon blue"><i class="fab fa-apple"></i></span>
+                            <span>iCloud Drive</span>
+                        </div>
+        
+                        <div class="sidebar-section-title">Locations</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon green"><i class="fas fa-hdd"></i></span>
+                            <span>Macintosh HD</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon purple"><i class="fas fa-network-wired"></i></span>
+                            <span>Network</span>
+                        </div>
+        
+                        <div class="sidebar-section-title">Tags</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon red"><i class="fas fa-circle"></i></span>
+                            <span>Red</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon orange"><i class="fas fa-circle"></i></span>
+                            <span>Orange</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon yellow"><i class="fas fa-circle"></i></span>
+                            <span>Yellow</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon green"><i class="fas fa-circle"></i></span>
+                            <span>Green</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon blue"><i class="fas fa-circle"></i></span>
+                            <span>Blue</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon purple"><i class="fas fa-circle"></i></span>
+                            <span>Purple</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon gray"><i class="fas fa-circle"></i></span>
+                            <span>Gray</span>
+                        </div>
+                    </div>
+        
+                    <!-- Content Area -->
+                    <div class="content-area">
+                        <!-- Sample Files and Folders -->
+                        <div class="file-item folder">
+                            <div class="file-icon folder"><i class="fas fa-folder"></i></div>
+                            <span>Projects</span>
+                        </div>
+                        <div class="file-item folder">
+                            <div class="file-icon folder"><i class="fas fa-folder"></i></div>
+                            <span>Photos 2024</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon image"><i class="fas fa-image"></i></div>
+                            <span>Vacation.jpg</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon pdf"><i class="fas fa-file-pdf"></i></div>
+                            <span>Report.pdf</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon document"><i class="fas fa-file-word"></i></div>
+                            <span>Meeting Notes.docx</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon code"><i class="fas fa-file-code"></i></div>
+                            <span>index.html</span>
+                        </div>
+                        <div class="file-item folder">
+                            <div class="file-icon folder"><i class="fas fa-folder"></i></div>
+                            <span>Work</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon image"><i class="fas fa-image"></i></div>
+                            <span>Screenshot.png</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon document"><i class="fas fa-file-alt"></i></div>
+                            <span>Readme.txt</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon image"><i class="fas fa-image"></i></div>
+                            <span>Design Mockup.sketch</span>
+                        </div>
+                        <div class="file-item folder">
+                            <div class="file-icon folder"><i class="fas fa-folder"></i></div>
+                            <span>Downloads</span>
+                        </div>
+                         <div class="file-item">
+                            <div class="file-icon pdf"><i class="fas fa-file-pdf"></i></div>
+                            <span>Contract.pdf</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon document"><i class="fas fa-file-excel"></i></div>
+                            <span>Budget.xlsx</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon code"><i class="fas fa-file-code"></i></div>
+                            <span>app.js</span>
+                        </div>
+                        <div class="file-item folder">
+                            <div class="file-icon folder"><i class="fas fa-folder"></i></div>
+                            <span>Archives</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon image"><i class="fas fa-image"></i></div>
+                            <span>Profile Pic.heic</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon document"><i class="fas fa-file-powerpoint"></i></div>
+                            <span>Presentation.pptx</span>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-icon code"><i class="fas fa-file-csv"></i></div>
+                            <span>data.csv</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -109,12 +336,15 @@
                         src="../taskbarIcons/Group 7.png" alt="">
                     <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 6.png" alt="">
-                    <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
+                    <img id="safariIcon" class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 5.png" alt="">
-                    <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
+                    <img id="finder-window" class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 4.png" alt="">
                     <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 3.png" alt="">
+                    <img id="camera"
+                        class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
+                        src="../taskbarIcons/camera.png" alt="">
                     <img class="h-11 transition ease-in-out duration-300 cursor-pointer hover:-translate-y-4 hover:scale-125"
                         src="../taskbarIcons/Group 11.png" alt="">
                 </div>
@@ -123,112 +353,9 @@
         </div>
     </div>
 
+    <script src="../JavaScript/script.js"></script>
+
 
 </body>
-
-<script>
-    const time = document.querySelector(".time");
-    const camera = document.querySelector("#camera");
-    const rightClickMenu = document.querySelector(".rightClickMenu");
-    const cameraWindow = document.querySelector(".camera-window");
-    const cameraVideo = cameraWindow.querySelector("video")
-    const close = cameraWindow.querySelector(".close")
-
-    close.addEventListener("click", () => {
-        cameraWindow.style.display = "none";
-        cameraWindow.style.animation = "fadeOut 0.2s ease-in-out";
-    })
-
-    close.addEventListener("click", () => {
-        cameraWindow.style.display = "none";
-        cameraWindow.style.animation = "fadeOut 0.2s ease-in-out";
-    })
-
-    document.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        rightClickMenu.style.left = `${e.clientX}px`;
-        rightClickMenu.style.top = `${e.clientY}px`;
-        rightClickMenu.style.display = "block";
-        rightClickMenu.style.animation = "fadeIn 0.2s ease-in-out";
-    })
-
-    document.addEventListener("click", (e) => {
-        rightClickMenu.style.display = "none";
-        rightClickMenu.style.animation = "fadeOut 0.2s ease-in-out";
-    })
-
-    camera.addEventListener("dblclick", () => {
-        cameraWindow.style.display = "block";
-        openCamera();
-    })
-
-    function getUpdatedTime() {
-        const date = new Date();
-        const currHrs = date.getHours()
-        const currMint = date.getMinutes()
-
-        time.innerHTML = `<h6 class="text-xs">${currHrs}:${currMint} ${currHrs < 12 ? "AM" : "PM"}</h6>`;
-    }
-
-    async function openCamera() {
-    try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        cameraVideo.style.zIndex = "0";
-        
-        if (!cameraVideo) {
-            console.error('Video element not found');
-            return;
-        }
-        cameraVideo.srcObject = stream;
-        await cameraVideo.play();
-        console.log('Camera opened successfully');
-        
-    } catch (err) {
-        // Handle specific error types
-        if (err.name === 'NotAllowedError') {
-            console.error('Camera access denied by user');
-        } else if (err.name === 'NotFoundError') {
-            console.error('No camera found on device');
-        } else if (err.name === 'NotReadableError') {
-            console.error('Camera is already in use');
-        } else {
-            console.error('Error accessing camera:', err.message);
-        }
-    }
-}
-
-// Alternative version with more detailed constraints
-async function openCameraAdvanced() {
-    try {
-        const constraints = {
-            video: {
-                width: { ideal: 1280 },
-                height: { ideal: 720 },
-                facingMode: 'user' // or 'environment' for back camera
-            }
-        };
-        
-        const stream = await navigator.mediaDevices.getUserMedia(constraints);
-        const cameraVideo = document.getElementById('cameraVideo');
-        
-        if (!cameraVideo) {
-            console.error('Video element not found');
-            return;
-        }
-        
-        cameraVideo.srcObject = stream;
-        await cameraVideo.play();
-        
-        console.log('Camera opened with advanced settings');
-        
-    } catch (err) {
-        console.error('Camera error:', err.name, err.message);
-    }
-}
-
-    setInterval(() => {
-        getUpdatedTime();
-    }, 3600);
-</script>
 
 </html>
