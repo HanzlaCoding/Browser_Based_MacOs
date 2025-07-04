@@ -6,7 +6,7 @@ const errorModal = document.querySelector("#wrong-password");
 
 accInputBtn.addEventListener("click", (e) => {
     if (accInput.value == "1234") {
-        window.location.href = "../Pages/Desktop.html"
+        window.location.href = "/src/Pages/Desktop.html"
     }
     else {
         errorModal.style.display = "block";
